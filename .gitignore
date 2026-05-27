@@ -1,23 +1,11 @@
-# Archivos de estado de Terraform
 *.tfstate
 *.tfstate.*
-
-# Planes de Terraform
 *.tfplan
-
-# Directorio de plugins descargados
 .terraform/
 .terraform.lock.hcl
-
-# Logs y archivos temporales
 crash.log
 *.out
-
-# Archivos de credenciales
 .terraformrc
 terraform.rc
-
-# Variables con datos sensibles (no aplica a módulos, pero es buena práctica)
 *.tfvars
 *.tfvars.json
-
