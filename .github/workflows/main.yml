@@ -1,10 +1,11 @@
-name: CI - terraform-module-networking
+name: CI - terraform-aws-vpc-AUY1105-FRF
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   call-terraform-workflow:

@@ -8,6 +8,9 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   checkov:
     name: Run Checkov for Security Analysis
@@ -28,5 +31,12 @@ jobs:
           pip install checkov
 
       - name: Run Checkov on Terraform files
-        run: checkov -d ${{ inputs.path }}
+        # Excepciones documentadas (entorno académico AWS Learner Lab):
+        # - CKV_TF_1     pin por commit hash: el curso usa pin por tag SemVer (?ref=vX.Y.Z)
+        # - CKV_AWS_130  IP pública en subred: la subred pública la requiere por diseño (EC2 con Apache)
+        # - CKV2_AWS_11  flow logs: requiere CloudWatch/S3 adicional, fuera de alcance
+        # - CKV2_AWS_12  default SG: no se gestiona el SG por defecto en este módulo
+        run: >-
+          checkov -d ${{ inputs.path }}
+          --skip-check CKV_TF_1,CKV_AWS_130,CKV2_AWS_11,CKV2_AWS_12
 
