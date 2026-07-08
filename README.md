@@ -31,6 +31,7 @@ terraform apply
 | v0.1.0 | Estructura inicial del módulo |
 | v0.2.0 | Agrega examples/ y output subnet_ids |
 | v1.0.0 | Versión estable y documentada |
+| v1.1.0 | Optimización: locals common_tags con merge() |
 ## Requirements
 
 | Name | Version |
