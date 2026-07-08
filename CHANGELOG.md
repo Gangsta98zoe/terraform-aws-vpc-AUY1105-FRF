@@ -1,5 +1,15 @@
 # Changelog — terraform-aws-vpc-AUY1105-FRF
 
+## [v1.1.0] - 2026-07-08
+### Added
+- Bloque `locals` con `common_tags` (Environment, Project, ManagedBy, Module)
+
+### Changed
+- Todos los recursos usan `merge(local.common_tags, {...})`: las etiquetas
+  comunes se definen una sola vez, mejorando legibilidad y mantenibilidad
+
+Compatibilidad hacia atrás: sin cambios en variables ni outputs (MINOR).
+
 Todos los cambios relevantes de este módulo se documentan aquí.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
 
